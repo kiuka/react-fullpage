@@ -29,32 +29,26 @@ var Section = function (_React$Component) {
         _this.state = {
             windowHeight: window.innerHeight
         };
+
+        _this._handleResize = _this._handleResize.bind(_this);
         return _this;
     }
 
     _createClass(Section, [{
-        key: 'handleResize',
-        value: function handleResize() {
-            this.setState({
-                windowHeight: window.innerHeight
-            });
-        }
-    }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            var _this2 = this;
-
-            window.addEventListener('resize', function () {
-                return _this2.handleResize();
-            });
+            window.addEventListener('resize', this._handleResize);
         }
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
-            var _this3 = this;
-
-            window.removeEventListener('resize', function () {
-                return _this3.handleResize();
+            window.removeEventListener('resize', this._handleResize);
+        }
+    }, {
+        key: '_handleResize',
+        value: function _handleResize() {
+            this.setState({
+                windowHeight: window.innerHeight
             });
         }
     }, {

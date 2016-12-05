@@ -7,20 +7,22 @@ class Section extends React.Component {
         this.state = {
             windowHeight: window.innerHeight
         };
-    }
 
-    handleResize() {
-        this.setState({
-            windowHeight: window.innerHeight
-        });
+        this._handleResize = this._handleResize.bind(this);
     }
 
     componentDidMount() {
-        window.addEventListener('resize', () => this.handleResize());
+        window.addEventListener('resize', this._handleResize);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', () => this.handleResize());
+        window.removeEventListener('resize', this._handleResize);
+    }
+
+    _handleResize() {
+        this.setState({
+            windowHeight: window.innerHeight
+        });
     }
 
     render() {
