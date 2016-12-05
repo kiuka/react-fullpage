@@ -53,6 +53,7 @@ var SectionsContainer = function (_React$Component) {
     }, {
         key: 'componentWillUnmount',
         value: function componentWillUnmount() {
+            this._removeOverflowFromBody();
             this._clearResetScrollTimer();
             this._removeDefaultEventListeners();
             this._removeMouseWheelEventHandlers();
@@ -137,6 +138,11 @@ var SectionsContainer = function (_React$Component) {
         key: '_addOverflowToBody',
         value: function _addOverflowToBody() {
             document.querySelector('body').style.overflow = 'hidden';
+        }
+    }, {
+        key: '_removeOverflowFromBody',
+        value: function _removeOverflowFromBody() {
+            document.querySelector('body').style.overflow = null;
         }
     }, {
         key: '_addMouseWheelEventHandlers',
