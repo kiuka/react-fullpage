@@ -168,7 +168,7 @@ export default class SectionsContainer extends React.Component {
 
     _handleArrowKeys(e) {
         const event = window.event ? window.event : e;
-        const activeSection = event.keyCode === 38 || event.keyCode === 37 ? this.state.activeSection - 1 : (event.keyCode === 40 || event.keyCode === 39 ? this.state.activeSection + 1 : -1);
+        const activeSection = event.keyCode === 38 || event.keyCode === 37 || event.keyCode === 33 ? this.state.activeSection - 1 : (event.keyCode === 40 || event.keyCode === 39 || event.keyCode === 34 ? this.state.activeSection + 1 : -1);
 
         if (this.state.scrollingStarted || activeSection < 0 || this._childrenLength === activeSection) {
             return false;
